@@ -40,23 +40,32 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
   justify-content: center;
+  gap: 24px;
 }
 
 .gallery-item {
-  list-style: none;
-  width: 250px;
-  height: 220px;
+  width: 360px;
 }
 
-.gallery-image {
-  width: 250px;
-  height: 150px;
-  margin-bottom: 10px;
-  display: block;
+.gallery-item:hover {
+  transform: scale(1.02);
 }
-
+.gallery-item > a > ul {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+}
+.gallery-item > a > img {
+  width: 100%;
+  max-height: 170px;
+  object-fit: cover;
+  overflow: hidden;
+}
 li {
   border: 1px solid black;
   transition-duration: 250ms;
