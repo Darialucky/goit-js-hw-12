@@ -66,6 +66,7 @@
   object-fit: cover;
   overflow: hidden;
 }
+
 li {
   border: 1px solid black;
   transition-duration: 250ms;

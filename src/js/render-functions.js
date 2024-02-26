@@ -1,48 +1,37 @@
-import { refs } from './refs';
-import { onError } from './iziToasts';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { perPage } from './pixabay-api';
-import { MESSAGE } from './iziToasts';
+import { gallery } from '../main';
+let lightbox;
 
-export let totalHits;
 
-export let lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionPosition: 'bottom',
-  captionDelay: 250,
-});
 
-export function makeGalleryItem(response) {
-  const result = response.hits.map(makeMarcup).join('');
-  totalHits = response.totalHits;
-  if (totalHits > perPage) {
-    refs.btnLoad.classList.remove('hidden');
+export function renderPhotos(data) {
+    const markup = data.hits
+      .map(data => {
+        return `<li class="gallery-item"><a href="${data.webformatURL}">
+              <img class="gallery-image" src="${data.webformatURL}" alt="${data.tags}"></a>
+              <p><b>Likes: </b>${data.likes}</p>
+              <p><b>Views: </b>${data.views}</p>
+              <p><b>Comments: </b>${data.comments}</p>
+              <p><b>Downloads: </b>${data.downloads}</p>
+              </li>`;
+      })
+      .join('');
+  
+    if (lightbox) {
+      lightbox.destroy();
+    }
+  
+    gallery.insertAdjacentHTML('beforeend', markup);
+    lightbox = new SimpleLightbox('.gallery a', options);
+    lightbox.on('show.simplelightbox');
+    lightbox.refresh();
   }
-  if (response.hits.length) {
-    refs.galleryList.insertAdjacentHTML('beforeend', result);
-  } else {
-    onError(MESSAGE);
-  }
-
-  lightbox.refresh();
-}
-
-export function makeMarcup(image) {
-  return `<li class="gallery-item">
-        <a href="${image.largeImageURL}" class="gallery-link">
-          <img
-            src="${image.webformatURL}"
-            class="gallery-image"
-            alt="${image.tags}"
-          />
-        </a>
-        <div class="modat-text">
-        
-            <div class="modal-element"><p>Likes</p><span>${image.likes}</span></div>
-            <div class="modal-element"><p>Views</p><span>${image.views}</span></div>
-            <div class="modal-element"><p>Comments</p><span>${image.comments}</span></div>
-            <div class="modal-element"><p>Downloads</p><span>${image.downloads}</span></div>
-        </div>
-      </li>`;
-}
+  const options = {
+    captions: true,
+    captionSelector: 'img',
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    animation: 250,
+  };
