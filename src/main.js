@@ -4,7 +4,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 import { fetchPhotos } from './js/pixabay-api';
 import { renderPhotos } from './js/render-functions';
-
+import {per_page} from './js/pixabay-api';
 const fetchPicturesForm = document.querySelector('.form');
 export const gallery = document.querySelector('.gallery');
 export const userInput = document.querySelector('input');
@@ -79,7 +79,7 @@ fetchPicturesForm.addEventListener('submit', async e => {
         behavior: 'smooth',
       });
     }
-    if (shouldHideLoadMoreButton(gallery.children.length, photos.totalHits)) {
+    if (shouldHideLoadMoreButton(/*gallery.children.length*/per_page, photos.totalHits)) {
       hideLoadMoreButton();
     } else {
       showLoadMoreButton();
