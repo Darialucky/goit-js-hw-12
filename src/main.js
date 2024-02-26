@@ -49,6 +49,7 @@ fetchPicturesForm.addEventListener('submit', async e => {
   showLoader();
   page = 1;
   e.preventDefault();
+  hideLoadMoreButton();
   gallery.innerHTML = '';
   const userQuery = userInput.value.trim();
   if (userQuery === '') {

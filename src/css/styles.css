@@ -79,35 +79,33 @@ input:hover{
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
-
 .gallery-item {
-    color: #000;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    list-style: none;
-    border-radius: 4px;
-    border: 1px solid #000 ;
-    
+  width: 360px;
+  /* height: 200px; */
 }
 
-.gallery-item:hover{
-    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+.gallery-item:hover {
+  transform: scale(1.02);
 }
-.gallery-item>p{
-    margin: 0 48px;
-    
+.gallery-item > a > ul {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
 }
-
-.gallery-image {
-    width: 300px;
-    height: 200px;
-    border-bottom: 1px solid #000;
+.gallery-item > a > img {
+  width: 100%;
+  max-height: 170px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 button{
