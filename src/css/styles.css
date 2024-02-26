@@ -77,6 +77,27 @@ input{
 input:hover{
     border: 1px solid #000;
 }
+#user-input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  padding-left: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+  outline: none;
+}
+#user-input:hover,
+#user-input:focus {
+  border: 1px solid #000;
+}
+#user-input:valid {
+  border: 1px solid #4e75ff;
+}
 
 .gallery {
     display: flex;

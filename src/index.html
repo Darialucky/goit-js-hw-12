@@ -14,12 +14,15 @@
 </head>
 <body>
     <div class="container">
-      <form action="" class="form">
-        <label class="input" for="inputField">
-            <input type="text" id="inputField" name="input" placeholder="Search images..." />
-        </label>
-    </form>
-          <button class="btn" type="submit">Search</button>
+        <form class="form">
+          <input
+            type="text"
+            name="user-input"
+            id="user-input"
+            placeholder="Search images..."
+            required
+          />
+          <button type="submit" class="search-button">Search</button>
         </form>
         <ul class="gallery"></ul>
         <button type="button" class="load-more" style="display: none">
