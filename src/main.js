@@ -12,7 +12,7 @@ const container = document.querySelector('.container');
 const loadMoreBtn = document.querySelector('.load-more');
 
 export let page = 1;
-
+let totalPages; 
 
 
 const showLoader = () => {
@@ -83,6 +83,7 @@ fetchPicturesForm.addEventListener('submit', async e => {
       hideLoadMoreButton();
     } else {
       showLoadMoreButton();
+      totalPages = Math.ceil( photos.totalHits / per_page); 
     }
   } catch (error) {
     hideLoadMoreButton();
@@ -106,7 +107,7 @@ loadMoreBtn.addEventListener('click', async () => {
       behavior: 'smooth',
     });
 
-    if (gallery.children.length >= photos.totalHits) {
+    if (page >= totalPages) {
       iziToast.warning({
         title: '',
         message:
@@ -115,7 +116,7 @@ loadMoreBtn.addEventListener('click', async () => {
       hideLoadMoreButton();
     }
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     hideLoader();
     hideLoadMoreButton();
   }
