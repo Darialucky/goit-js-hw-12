@@ -29,12 +29,12 @@ const hideLoader = () => {
   }
 };
 
-// відображення кнопки "Load more"
+
 const showLoadMoreButton = () => {
   loadMoreBtn.style.display = 'block';
 };
 
-//приховання кнопки "Load more"
+
 const hideLoadMoreButton = () => {
   loadMoreBtn.style.display = 'none';
 };
@@ -43,8 +43,6 @@ function shouldHideLoadMoreButton(loadedImagesCount, totalImagesCount) {
   return loadedImagesCount >= totalImagesCount;
 }
 
- 
- 
 
 fetchPicturesForm.addEventListener('submit', async e => {
 
@@ -71,7 +69,7 @@ fetchPicturesForm.addEventListener('submit', async e => {
           'Sorry, there are no images matching your search query. Please try again!',
       }); 
 
-      // Прокрутка сторінки на дві висоти 
+      
       const { height: cardHeight } = document
         .querySelector('.gallery')
         .firstElementChild.getBoundingClientRect();
@@ -99,7 +97,7 @@ loadMoreBtn.addEventListener('click', async () => {
     renderPhotos(photos);
     hideLoader();
 
-    // Прокрутка сторінки на дві висоти карточки галереї
+    
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
