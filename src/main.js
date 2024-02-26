@@ -84,7 +84,6 @@ fetchPicturesForm.addEventListener('submit', async e => {
       showLoadMoreButton();
     }
   } catch (error) {
-    console.log(error);
     hideLoadMoreButton();
   }
 });
