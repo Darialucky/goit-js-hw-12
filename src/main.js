@@ -84,7 +84,7 @@ fetchPicturesForm.addEventListener('submit', async e => {
     } else {
       showLoadMoreButton();
       totalPages = Math.ceil( photos.totalHits / per_page); 
-    }
+    }  fetchPicturesForm.reset();
   } catch (error) {
     hideLoadMoreButton();
   }
