@@ -11,7 +11,7 @@ let lightbox = new SimpleLightbox('.gallery a', {
 export function renderPhotos(data) {
   const markup = data.hits
     .map(data => {
-      return `<li class="gallery-item"><a href="${data.webformatURL}">
+      return `<li class="gallery-item"><a href="${data.largeImageURL}">
         <img class="gallery-image" src="${data.webformatURL}" alt="${data.tags}"></a>
         <div class="modat-text">
           <div class="modal-element"><p>Likes</p><span>${data.likes}</span></div>

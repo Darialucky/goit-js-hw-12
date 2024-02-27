@@ -177,6 +177,7 @@ button:hover{
 p {
   font-weight: bold;
   font-size: 13px;
+  margin-top: 0;
 }
 
 span {
